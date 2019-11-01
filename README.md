@@ -1,5 +1,5 @@
 # amelia
-***
+
 ### personal R package
 featuring my go to color palettes, ggplot2 theme(s), and a few other misc functions.
 

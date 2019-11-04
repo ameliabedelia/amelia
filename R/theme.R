@@ -274,3 +274,26 @@ theme_minimal_hgrid <- function(font_size = 14, font_family = "", line_size = .5
                complete = TRUE
           )
 }
+
+
+#' Add/remove the panel border in a ggplot2 plot
+#'
+#' This function adds or removes the panel border in ggplot2.
+#' Modified from Cowplot
+
+#' @param color,colour The color of the border.
+#' @param size Size. Needs to be twice as large as desired outcome when panel clipping
+#'   is on (the default).
+#' @param linetype Line type.
+#' @param remove If \code{TRUE}, removes the current panel border.
+#' @export
+panel_border <- function(color = 'grey50', size = 1, linetype = 1, remove = FALSE, colour){
+        if (!missing(colour)) {
+                color <- colour
+        }
+
+        if (remove){
+                return(theme(panel.border = element_blank()))
+        }
+        theme(panel.border = element_rect(color = color, fill = NA, linetype = linetype, size = size))
+}

@@ -4,6 +4,9 @@ landkreis <- read_csv("data-raw/landkreise_sf.csv") %>%
      rename_all(tolower) %>%
      mutate(
           rs = parse_double(rs),
+          rs = if_else(rs %in% c(3152, 3156), 3159, rs),
+          gen = if_else(gen %in% c("Göttingen", "Osterode am Harz"),
+                        "Göttingen, Landkreis", gen),
           bundesland = case_when(
                between(rs, 1000, 1999) ~ "Schleswig-Holstein",
                between(rs, 2000, 2999) ~ "Hamburg",
@@ -22,5 +25,6 @@ landkreis <- read_csv("data-raw/landkreise_sf.csv") %>%
                between(rs, 15000, 15999) ~ "Sachsen-Anhalt",
                between(rs, 16000, 16999) ~ "Thueringen")
      )
+write_csv(landkreis, "landkreis.csv")
 
 usethis::use_data(landkreis, internal = FALSE)

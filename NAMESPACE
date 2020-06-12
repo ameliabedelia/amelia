@@ -2,9 +2,12 @@
 
 export(add_logo)
 export(amelia_colors)
+export(microverse_colors)
 export(panel_border)
 export(scale_color_amelia)
+export(scale_color_microverse)
 export(scale_fill_amelia)
+export(scale_fill_microverse)
 export(se)
 export(theme_halfopen)
 export(theme_minimal_grid)

@@ -4,7 +4,9 @@
 \name{bundesland}
 \alias{bundesland}
 \title{Geospatial data of Bunderländer in Germany}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 18320 rows and 6 columns.}
+\format{
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 18320 rows and 6 columns.
+}
 \usage{
 bundesland
 }

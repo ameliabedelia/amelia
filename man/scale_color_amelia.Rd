@@ -7,7 +7,7 @@
 scale_color_amelia(..., palette = "cb_grey")
 }
 \arguments{
-\item{palette}{Name of color palette to use (currently, either "cb_grey" or "cb_black")}
+\item{palette}{Name of color palette to use (currently, "cb_grey" ir "cb_black")}
 }
 \description{
 Function to provide color blind-friendly scales

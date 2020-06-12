@@ -1,5 +1,7 @@
 # theme color help from https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
 
+#### color palettes ####
+
 #cb friendly color palette
 cb_colors <- c(
      `grey` = "#999999",
@@ -12,6 +14,19 @@ cb_colors <- c(
      `pink` = "#CC79A7",
      `black` = "#000000"
 )
+
+#microverse color palette
+microverse_colors <- c(
+        `dunkelblau` = "#006ab3",
+        `hellblau` = "#96b3df",
+        `gruen` = "#8DC9A5",
+        `rot` = "#EE7788",
+        `violett` = "#943484",
+        `orange` = "#F29062",
+        `grau` = "#DADADA"
+)
+
+#### color palette functions ####
 
 #' Function to extract amelia colors as hex codes
 #'
@@ -37,6 +52,29 @@ amelia_colors <- function(...) {
 }
 
 
+#' Function to extract microverse colors as hex codes
+#'
+#' @param ... Character names of cb_colors
+#' @export
+microverse_colors <- function(...) {
+        microverse_colors <- c(
+                `dunkelblau` = "#006ab3",
+                `hellblau` = "#96b3df",
+                `gruen` = "#8DC9A5",
+                `rot` = "#EE7788",
+                `violett` = "#943484",
+                `orange` = "#F29062",
+                `grau` = "#DADADA"
+        )
+        cols <- c(...)
+        if (is.null(cols))
+                return (microverse_colors)
+
+        microverse_colors[cols]
+}
+
+#### ggplot2 scale color/fills ####
+
 amelia_palettes <- list(
      `cb_grey`  = amelia_colors("grey", "orange", "light blue", "green", "yellow", "dark blue",
                                 "orange red", "pink", "black"),
@@ -46,7 +84,7 @@ amelia_palettes <- list(
 
 #' Function to provide color blind-friendly scales
 #'
-#' @param palette Name of color palette to use (currently, either "cb_grey" or "cb_black")
+#' @param palette Name of color palette to use (currently, "cb_grey" ir "cb_black")
 #' @export
 scale_color_amelia <- function(..., palette = "cb_grey") {
      ggplot2::scale_color_manual(..., values = unname(amelia_palettes[[palette]]))
@@ -60,6 +98,26 @@ scale_color_amelia <- function(..., palette = "cb_grey") {
 scale_fill_amelia <- function(..., palette = "cb_grey") {
      ggplot2::scale_fill_manual(..., values = unname(amelia_palettes[[palette]]))
 }
+
+
+
+#' Function to provide microverse palette to scale_color functions
+#'
+#' @export
+scale_color_microverse <- function(...) {
+        ggplot2::scale_color_manual(..., values = unname(microverse_colors()))
+}
+
+
+#' Function to provide microverse palette to scale_fill functions
+#'
+#' @export
+scale_fill_microverse <- function(...) {
+        ggplot2::scale_fill_manual(..., values = unname(microverse_colors()))
+}
+
+
+#### ggplot2 themes ####
 
 #' Theme from cowplot
 #'

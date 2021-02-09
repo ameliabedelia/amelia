@@ -3,7 +3,6 @@
 #' This function places a logo at one of the corners of your image/plot
 #'
 #' @export
-#' @import magick
 
 add_logo <- function(plot_path, logo_path, logo_position, logo_scale = 10){
 
@@ -15,20 +14,20 @@ add_logo <- function(plot_path, logo_path, logo_position, logo_scale = 10){
      }
 
      # read in raw images
-     plot <- magick::image_read(plot_path)
-     logo_raw <- magick::image_read(logo_path)
+     plot <- image_read(plot_path)
+     logo_raw <- image_read(logo_path)
 
      # get dimensions of plot for scaling
-     plot_height <- magick::image_info(plot)$height
-     plot_width <- magick::image_info(plot)$width
+     plot_height <- image_info(plot)$height
+     plot_width <- image_info(plot)$width
 
      # default scale to 1/10th width of plot
      # can change by altering logo_scale
-     logo <- magick::image_scale(logo_raw, as.character(plot_width/logo_scale))
+     logo <- image_scale(logo_raw, as.character(plot_width/logo_scale))
 
      # Get width of logo
-     logo_width <- magick::image_info(logo)$width
-     logo_height <- magick::image_info(logo)$height
+     logo_width <- image_info(logo)$width
+     logo_height <- image_info(logo)$height
 
 
      # Set position of logo
@@ -50,6 +49,6 @@ add_logo <- function(plot_path, logo_path, logo_position, logo_scale = 10){
      }
 
      # Compose the actual overlay
-     magick::image_composite(plot, logo, offset = paste0("+", x_pos, "+", y_pos))
+     image_composite(plot, logo, offset = paste0("+", x_pos, "+", y_pos))
 
 }

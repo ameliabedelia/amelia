@@ -14,10 +14,5 @@ gm_mean(x, na.rm = TRUE)
 \description{
 This function calculates the geometric mean of the numeric vector `x`.
 }
-\examples{
-
-
-
-}
 \keyword{geometric}
 \keyword{mean}

@@ -82,7 +82,7 @@ amelia_colors <- function(...) {
 
 #' Function to extract microverse colors as hex codes
 #'
-#' @param ... Character names of cb_colors
+#' @param ... Character names of microverse colors
 #' @export
 microverse_colors <- function(...) {
         microverse_colors <- c(
@@ -132,7 +132,7 @@ fsu_dark_colors <- function(...) {
 #'
 #' @param ... Character names of uni jena light colors
 #' @export
-fsu_dark_colors <- function(...) {
+fsu_light_colors <- function(...) {
      fsu_light_colors <- c(
           `light purple` = "#8378aa",
           `light lavender` = "#9f6c9b",
@@ -197,8 +197,8 @@ scale_fill_microverse <- function(...) {
 
 
 fsu_palettes <- list(
-     `fsu_dark`  = fsu_dark_colors,
-     `fsu_light`  = fsu_light_colors
+     `fsu_dark`  = fsu_dark_colors(),
+     `fsu_light`  = fsu_light_colors()
 )
 
 #' Function to provide color fsu theme colors to ggplot

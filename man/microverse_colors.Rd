@@ -7,7 +7,7 @@
 microverse_colors(...)
 }
 \arguments{
-\item{...}{Character names of cb_colors}
+\item{...}{Character names of microverse colors}
 }
 \description{
 Function to extract microverse colors as hex codes

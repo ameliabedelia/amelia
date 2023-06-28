@@ -14,10 +14,5 @@ se(x, na.rm = TRUE)
 \description{
 This function calculates the standard error of all the values in `x`.
 }
-\examples{
-
-
-
-}
 \keyword{error}
 \keyword{standard}

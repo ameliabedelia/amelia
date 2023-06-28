@@ -26,6 +26,34 @@ microverse_colors <- c(
         `grau` = "#DADADA"
 )
 
+#fsu color palette dark
+fsu_dark_colors <- c(
+     `dark blue` = "#002673",
+     `dark purple` = "#4c4186",
+     `medium purple` = "#762571",
+     `maroon` = "#a31b59",
+     `brick red` = "#bc2c37",
+     `orange` = "#ce652d",
+     `goldenrod` = "#cd8e2a",
+     `light green` = "#529b42",
+     `dark green`= "#15733e",
+     `teal` = "#00777f",
+     `aqua blue` = "#3981a6"
+)
+
+fsu_light_colors <- c(
+     `light purple` = "#8378aa",
+     `light lavender` = "#9f6c9b",
+     `light maroon` = "#c17089",
+     `light red` = "#d47969",
+     `light orange` = "#df9a6c",
+     `light goldenrod` = "#dcab5e",
+     `light green` = "#90b87d",
+     `dark green`= "#739a72",
+     `light teal` = "#639ea5",
+     `sky blue` = "#80a7c2"
+)
+
 #### color palette functions ####
 
 #' Function to extract amelia colors as hex codes
@@ -73,6 +101,57 @@ microverse_colors <- function(...) {
         microverse_colors[cols]
 }
 
+#' Function to extract FSU dark colors as hex codes
+#'
+#' @param ... Character names of uni jena dark colors
+#' @export
+fsu_dark_colors <- function(...) {
+          fsu_dark_colors <- c(
+               `dark blue` = "#002673",
+               `dark purple` = "#4c4186",
+               `medium purple` = "#762571",
+               `maroon` = "#a31b59",
+               `brick red` = "#bc2c37",
+               `orange` = "#ce652d",
+               `goldenrod` = "#cd8e2a",
+               `light green` = "#529b42",
+               `dark green`= "#15733e",
+               `teal` = "#00777f",
+               `aqua blue` = "#3981a6"
+     )
+     cols <- c(...)
+     if (is.null(cols))
+          return (fsu_dark_colors)
+
+     fsu_dark_colors[cols]
+}
+
+
+
+#' Function to extract FSU light colors as hex codes
+#'
+#' @param ... Character names of uni jena light colors
+#' @export
+fsu_dark_colors <- function(...) {
+     fsu_light_colors <- c(
+          `light purple` = "#8378aa",
+          `light lavender` = "#9f6c9b",
+          `light maroon` = "#c17089",
+          `light red` = "#d47969",
+          `light orange` = "#df9a6c",
+          `light goldenrod` = "#dcab5e",
+          `light green` = "#90b87d",
+          `dark green`= "#739a72",
+          `light teal` = "#639ea5",
+          `sky blue` = "#80a7c2"
+     )
+     cols <- c(...)
+     if (is.null(cols))
+          return (fsu_light_colors)
+
+     fsu_light_colors[cols]
+}
+
 #### ggplot2 scale color/fills ####
 
 amelia_palettes <- list(
@@ -84,7 +163,7 @@ amelia_palettes <- list(
 
 #' Function to provide color blind-friendly scales
 #'
-#' @param palette Name of color palette to use (currently, "cb_grey" ir "cb_black")
+#' @param palette Name of color palette to use (currently, "cb_grey" or "cb_black")
 #' @export
 scale_color_amelia <- function(..., palette = "cb_grey") {
      ggplot2::scale_color_manual(..., values = unname(amelia_palettes[[palette]]))
@@ -115,6 +194,30 @@ scale_color_microverse <- function(...) {
 scale_fill_microverse <- function(...) {
         ggplot2::scale_fill_manual(..., values = unname(microverse_colors()))
 }
+
+
+fsu_palettes <- list(
+     `fsu_dark`  = fsu_dark_colors,
+     `fsu_light`  = fsu_light_colors
+)
+
+#' Function to provide color fsu theme colors to ggplot
+#'
+#' @param palette Name of color palette to use (currently, "fsu_dark" or "fsu_light")
+#' @export
+scale_color_fsu <- function(..., palette = "fsu_dark") {
+     ggplot2::scale_color_manual(..., values = unname(fsu_palettes[[palette]]))
+}
+
+
+#' Function to provide color blind-friendly fills
+#'
+#' @param palette Name of color palette to use (currently, either "cb_grey" or "cb_black")
+#' @export
+scale_fill_fsu <- function(..., palette = "fsu_dark") {
+     ggplot2::scale_fill_manual(..., values = unname(fsu_palettes[[palette]]))
+}
+
 
 
 #### ggplot2 themes ####
